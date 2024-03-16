@@ -34,6 +34,19 @@ class MarcaController extends Controller
     public function store(Request $request)
     {
         // $marca = Marca::create($request->all());
+        $regras =[
+            'nome' => 'required|unique:marcas|min:3|max:100',
+            'imagem' => 'required',
+        ];
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'nome.min' => 'O campo nome deve ter no minimo 3 caracteres',
+            'nome.max' => 'O campo nome deve ter no maximo 100 caracteres',
+            'nome.unique' => 'O nome informado ja existe',
+        ];
+
+        $request->validate($regras, $feedback);
+        //stateless
         $marca = $this->marca->create($request->all());
         return response()->json($marca, 201);
     }
