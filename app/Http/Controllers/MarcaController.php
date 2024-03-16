@@ -22,7 +22,7 @@ class MarcaController extends Controller
     {
         // $marcas = Marca::all();
         $marcas = $this->marca->all();
-        return $marcas;
+        return response()->json($marcas, 200);
     }
 
     /**
@@ -35,7 +35,7 @@ class MarcaController extends Controller
     {
         // $marca = Marca::create($request->all());
         $marca = $this->marca->create($request->all());
-        return $marca;
+        return response()->json($marca, 201);
     }
 
     /**
@@ -51,7 +51,7 @@ class MarcaController extends Controller
         if($marca === null){ 
             return response()->json(['msg' => 'Não encontrado'], 404);
         }
-        return $marca;
+        return response()->json($marca, 200);
     }
 
     /**
@@ -69,7 +69,7 @@ class MarcaController extends Controller
             return response()->json(['msg' => 'Não foi possiverl realizar a atualização'], 404);
         }
         $marca->update($request->all());
-        return $marca;
+        return response()->json($marca, 200);
     }
 
     /**
@@ -87,6 +87,6 @@ class MarcaController extends Controller
             return response()->json(['msg' => 'Não foi possiverl realizar operação'], 404);
         }
         $marca->delete();
-        return ['msg' => 'Deletado'];
+        return response()->json(['msg' => 'Deletado'],200);
     }
 }
