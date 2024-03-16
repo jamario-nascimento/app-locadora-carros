@@ -48,6 +48,9 @@ class MarcaController extends Controller
     {
         // $marca = Marca::find($marca);
         $marca = $this->marca->find($id);
+        if($marca === null){ 
+            return response()->json(['msg' => 'Não encontrado'], 404);
+        }
         return $marca;
     }
 
@@ -62,6 +65,9 @@ class MarcaController extends Controller
     {
         // $marca->update($request->all());
         $marca = $this->marca->find($id);
+        if($marca === null){ 
+            return response()->json(['msg' => 'Não foi possiverl realizar a atualização'], 404);
+        }
         $marca->update($request->all());
         return $marca;
     }
@@ -77,6 +83,9 @@ class MarcaController extends Controller
         // print_r($marca->getAttributes());
         // $marca->delete();
         $marca = $this->marca->find($id);
+        if($marca === null){ 
+            return response()->json(['msg' => 'Não foi possiverl realizar operação'], 404);
+        }
         $marca->delete();
         return ['msg' => 'Deletado'];
     }
