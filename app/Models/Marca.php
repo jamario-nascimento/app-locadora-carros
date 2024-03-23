@@ -25,4 +25,8 @@ class Marca extends Model
             'nome.unique' => 'O nome informado ja existe',
         ];
     }
+
+    public function modelos(){
+        return $this->hasMany(Modelo::class);
+    }
 }

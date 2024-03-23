@@ -22,7 +22,7 @@ class MarcaController extends Controller
     public function index()
     {
         // $marcas = Marca::all();
-        $marcas = $this->marca->all();
+        $marcas = $this->marca->with('modelos')->get();
         return response()->json($marcas, 200);
     }
 
@@ -53,7 +53,7 @@ class MarcaController extends Controller
     public function show($id)
     {
         // $marca = Marca::find($marca);
-        $marca = $this->marca->find($id);
+        $marca = $this->marca->with('modelos')->find($id);
         if ($marca === null) {
             return response()->json(['msg' => 'Não encontrado'], 404);
         }
@@ -97,12 +97,14 @@ class MarcaController extends Controller
         $imagem = $request->file('imagem');
         $imagem_urn = $imagem->store('imagens/marcas', 'public');
 
-        $marca->update(
-            [
-                'nome' => $request->nome,
-                'imagem' => $imagem_urn
-            ]
-        );
+        /*
+         Para resolver o problema de patch,  usamos o metodo fill e atualizamos 
+         os campos faltantes resgatando do banco os dados, o fill pega os dados do request e atualiza os campos
+         e subistitui no obj e por fim salvamos o novo cminho da imagem usando urn da imagem. Agora usamos o metodo save do objeto da Classe.
+         */
+        $marca->fill($request->all());
+        $marca->imagem = $imagem_urn;
+        $marca->save();
 
         return response()->json($marca, 200);
     }
@@ -115,6 +117,7 @@ class MarcaController extends Controller
      */
     public function destroy($id)
     {
+ 
         $marca = $this->marca->find($id);
         if ($marca === null) {
             return response()->json(['msg' => 'Não foi possiverl realizar operação'], 404);
