@@ -53,7 +53,7 @@ class MarcaController extends Controller
     {
         // $marca = Marca::find($marca);
         $marca = $this->marca->find($id);
-        if($marca === null){ 
+        if ($marca === null) {
             return response()->json(['msg' => 'Não encontrado'], 404);
         }
         return response()->json($marca, 200);
@@ -70,24 +70,34 @@ class MarcaController extends Controller
     {
         $marca = $this->marca->find($id);
 
-        if($marca === null) {
+        if ($marca === null) {
             return response()->json(['erro' => 'Impossível realizar a atualização. O recurso solicitado não existe'], 404);
         }
-        if($request->method() === 'PATCH'){
+        if ($request->method() === 'PATCH') {
             $regrasDinamicas = array();
             //percorrendo todas as regras definidas no Model
-            foreach($marca->rules() as $input => $regra){
+            foreach ($marca->rules() as $input => $regra) {
                 //coletar apenas as regras aplicaiveis aos parâmetros parciais
-                if(array_key_exists($input, $request->all())){
+                if (array_key_exists($input, $request->all())) {
                     $regrasDinamicas[$input] = $regra;
                 }
             }
+
             $request->validate($regrasDinamicas, $this->marca->feedback());
-        }else{
+        } else {
             $request->validate($marca->rules(), $marca->feedback());
         }
-       
-        $marca->update($request->all());
+
+        $imagem = $request->file('imagem');
+        $imagem_urn = $imagem->store('imagens/marcas', 'public');
+
+        $marca->update(
+            [
+                'nome' => $request->nome,
+                'imagem' => $imagem_urn
+            ]
+        );
+
         return response()->json($marca, 200);
     }
 
@@ -102,10 +112,10 @@ class MarcaController extends Controller
         // print_r($marca->getAttributes());
         // $marca->delete();
         $marca = $this->marca->find($id);
-        if($marca === null){ 
+        if ($marca === null) {
             return response()->json(['msg' => 'Não foi possiverl realizar operação'], 404);
         }
         $marca->delete();
-        return response()->json(['msg' => 'Deletado'],200);
+        return response()->json(['msg' => 'Deletado'], 200);
     }
 }
