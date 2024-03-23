@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Marca;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage as FacadesStorage;
 
 class MarcaController extends Controller
 {
@@ -88,6 +89,11 @@ class MarcaController extends Controller
             $request->validate($marca->rules(), $marca->feedback());
         }
 
+        // Removendo imagem anterior ao realizar a atualização
+        if($request->file('imagem')){
+            FacadesStorage::disk('public')->delete($marca->imagem);
+        }
+
         $imagem = $request->file('imagem');
         $imagem_urn = $imagem->store('imagens/marcas', 'public');
 
@@ -109,12 +115,13 @@ class MarcaController extends Controller
      */
     public function destroy($id)
     {
-        // print_r($marca->getAttributes());
-        // $marca->delete();
         $marca = $this->marca->find($id);
         if ($marca === null) {
             return response()->json(['msg' => 'Não foi possiverl realizar operação'], 404);
         }
+       
+        FacadesStorage::disk('public')->delete($marca->imagem);
+        
         $marca->delete();
         return response()->json(['msg' => 'Deletado'], 200);
     }
