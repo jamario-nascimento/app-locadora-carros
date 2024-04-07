@@ -1,0 +1,1521 @@
+{
+	"info": {
+		"_postman_id": "2eca5b3b-8613-4af5-a525-e5092bcf481d",
+		"name": "Locadora_Carros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2187207"
+	},
+	"item": [
+		{
+			"name": "Marcas",
+			"item": [
+				{
+					"name": "Create Marca",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Nisan",
+									"type": "text"
+								},
+								{
+									"key": "imagem",
+									"value": "nissan.png",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/marca",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SaveFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "Ford",
+									"type": "text"
+								},
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/jamar/Downloads/imagens_marcas/imagens_marcas/ford.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/marca",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "Volkiswagem",
+									"type": "text"
+								},
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/jamar/Downloads/imagens_marcas/imagens_marcas/volkswagen.png"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/marca/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFile Patch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "Toyota",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/jamar/Downloads/imagens_marcas/imagens_marcas/toyota.png"
+								},
+								{
+									"key": "_method",
+									"value": "patch",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/marca/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Marcas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/marca",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Marcas Filter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/marca?&atributos=id,nome,imagem&atributos_modelos=id,nome,marca_id&filtro=nome:like:Vol%",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "atributos",
+									"value": "id,nome,imagem"
+								},
+								{
+									"key": "atributos_modelos",
+									"value": "id,nome,marca_id"
+								},
+								{
+									"key": "filtro",
+									"value": "nome:like:Vol%"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Marca",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/marca/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Marca",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Volkswagen",
+									"type": "text"
+								},
+								{
+									"key": "imagem",
+									"value": "volkswagen.jpeg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/marca/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Marca",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "imagem",
+									"value": "volkswagen.png",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/marca/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Marca",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/marca/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8000/storage/imagens/marcas/9XoNFCCbejGe6HRQ1vSZmtra6pnOkCIdW9YZdOrN.png",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/storage/imagens/marcas/9XoNFCCbejGe6HRQ1vSZmtra6pnOkCIdW9YZdOrN.png",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"storage",
+								"imagens",
+								"marcas",
+								"9XoNFCCbejGe6HRQ1vSZmtra6pnOkCIdW9YZdOrN.png"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carros",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "modelo_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "placa",
+									"value": "AAA-3344",
+									"type": "text"
+								},
+								{
+									"key": "disponivel",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "km",
+									"value": "1000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/carro",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"carro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/carro",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"carro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Filter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/marca?&atributos=id,nome,imagem&atributos_modelos=id,nome,marca_id&filtro=nome:like:Vol%",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "atributos",
+									"value": "id,nome,imagem"
+								},
+								{
+									"key": "atributos_modelos",
+									"value": "id,nome,marca_id"
+								},
+								{
+									"key": "filtro",
+									"value": "nome:like:Vol%"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/carro/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"carro",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "modelo_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "placa",
+									"value": "BBB-3322",
+									"type": "text"
+								},
+								{
+									"key": "disponivel",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "km",
+									"value": "1350",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/carro/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"carro",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "disponivel",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/carro/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"carro",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/carro/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"carro",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locações",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cliente_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "carro_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "data_inicio_periodo",
+									"value": "2024/04/07",
+									"type": "text"
+								},
+								{
+									"key": "data_final_previsto_periodo",
+									"value": "2024/04/12",
+									"type": "text"
+								},
+								{
+									"key": "data_final_realizado_periodo",
+									"value": "2024/04/12",
+									"type": "text"
+								},
+								{
+									"key": "valor_diaria",
+									"value": "250",
+									"type": "text"
+								},
+								{
+									"key": "km_inicial",
+									"value": "1350",
+									"type": "text"
+								},
+								{
+									"key": "km_final",
+									"value": "1450",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/locacao",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"locacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cliente_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "carro_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "data_inicio_periodo",
+									"value": "2024/04/07",
+									"type": "text"
+								},
+								{
+									"key": "data_final_previsto_periodo",
+									"value": "2024/04/12",
+									"type": "text"
+								},
+								{
+									"key": "data_final_realizado_periodo",
+									"value": "2024/04/12",
+									"type": "text"
+								},
+								{
+									"key": "valor_diaria",
+									"value": "180",
+									"type": "text"
+								},
+								{
+									"key": "km_inicial",
+									"value": "1350",
+									"type": "text"
+								},
+								{
+									"key": "km_final",
+									"value": "1450",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/locacao/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"locacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Partial",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cliente_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "carro_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "data_inicio_periodo",
+									"value": "2024/04/07",
+									"type": "text"
+								},
+								{
+									"key": "data_final_previsto_periodo",
+									"value": "2024/04/12",
+									"type": "text"
+								},
+								{
+									"key": "data_final_realizado_periodo",
+									"value": "2024/04/12",
+									"type": "text"
+								},
+								{
+									"key": "valor_diaria",
+									"value": "250",
+									"type": "text"
+								},
+								{
+									"key": "km_inicial",
+									"value": "1350",
+									"type": "text"
+								},
+								{
+									"key": "km_final",
+									"value": "1450",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/locacao/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"locacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/locacao",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"locacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Filter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/marca?&atributos=id,nome,imagem&atributos_modelos=id,nome,marca_id&filtro=nome:like:Vol%",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"marca"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "atributos",
+									"value": "id,nome,imagem"
+								},
+								{
+									"key": "atributos_modelos",
+									"value": "id,nome,marca_id"
+								},
+								{
+									"key": "filtro",
+									"value": "nome:like:Vol%"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/locacao/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"locacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/locacao/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"locacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Gabriel",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Filter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/cliente?&atributos=nome&filtro=nome:like:Jam%",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cliente"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								},
+								{
+									"key": "atributos",
+									"value": "nome"
+								},
+								{
+									"key": "filtro",
+									"value": "nome:like:Jam%"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/cliente/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cliente",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Jamário Nascimento",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/cliente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Jamário Batista Nascimento",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/cliente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Marca",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/cliente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Modelos",
+			"item": [
+				{
+					"name": "Get Modelos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/modelo",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"modelo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Modelos Parans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/modelo?atributos=id,nome,imagem,marca_id&atributos_marca=nome,imagem&filtro=nome:=:Ford Ka 1.0",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"modelo"
+							],
+							"query": [
+								{
+									"key": "atributos",
+									"value": "id,nome,imagem,marca_id"
+								},
+								{
+									"key": "atributos_marca",
+									"value": "nome,imagem"
+								},
+								{
+									"key": "filtro",
+									"value": "nome:=:Ford Ka 1.0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Modelos Parans Filtro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/modelo?atributos=id,nome,imagem,marca_id&atributos_marca=nome,imagem",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"modelo"
+							],
+							"query": [
+								{
+									"key": "atributos",
+									"value": "id,nome,imagem,marca_id"
+								},
+								{
+									"key": "atributos_marca",
+									"value": "nome,imagem"
+								},
+								{
+									"key": "filtro",
+									"value": "abs:-:0;numero_portas:=:4",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Modelo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/modelo/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"modelo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Modelo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/modelo/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"modelo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Modelos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "marca_id",
+									"value": "9",
+									"type": "text"
+								},
+								{
+									"key": "nome",
+									"value": "Ford Ka 1.0",
+									"type": "text"
+								},
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/jamar/Downloads/imagens_modelos/imagens_modelos/ford_ka_1_0.png"
+								},
+								{
+									"key": "numero_portas",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "lugares",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "air_bag",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "abs",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/modelo",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"modelo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Modelos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "marca_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "nome",
+									"value": "Volkswagem Gol 1.6",
+									"type": "text"
+								},
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/jamar/Downloads/imagens_modelos/imagens_modelos/volkswagen_gol_1_6.png"
+								},
+								{
+									"key": "numero_portas",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "lugares",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "air_bag",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "abs",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/modelo/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"modelo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Modelos Patch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "marca_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "nome",
+									"value": "Volkswagem Gol 1.6 bebedor",
+									"type": "text"
+								},
+								{
+									"key": "imagem",
+									"type": "file",
+									"src": "/C:/Users/jamar/Downloads/imagens_modelos/imagens_modelos/volkswagen_gol_1_6.png"
+								},
+								{
+									"key": "numero_portas",
+									"value": "4",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lugares",
+									"value": "5",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "air_bag",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "abs",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "_method",
+									"value": "patch",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/modelo/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"modelo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JWT-AUTH",
+			"item": [
+				{
+					"name": "localhost:8000/api/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

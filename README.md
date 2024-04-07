@@ -32,4 +32,6 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 - **[jwt-auth documentation](https://jwt-auth.readthedocs.io/en/develop/laravel-installation/)**
 
-```php artisan jwt:secret``` - Gerando secret
+```php artisan jwt:secret``` - Gerando secret  
+
+```php artisan make:controller AuthController``` 
