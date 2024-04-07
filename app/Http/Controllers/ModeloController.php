@@ -29,9 +29,12 @@ class ModeloController extends Controller
             $modelos = $this->modelo->with('marca');
         }
 
-        if($request->has('filtro')){
-            $condicoes = explode(':', $request->filtro);
-            $modelos = $modelos->where($condicoes[0], $condicoes[1], $condicoes[2]);
+        if($request->has('filtro')) {
+            $filtros = explode(';', $request->filtro);
+            foreach($filtros as $key => $condicao) {
+                $c = explode(':', $condicao);
+                $modelos = $modelos->where($c[0], $c[1], $c[2]);
+            }
         }
 
         if($request->has('atributos')) {
@@ -41,8 +44,10 @@ class ModeloController extends Controller
             $modelos = $modelos->get();
         }
 
+        //$this->modelo->with('marca')->get()
         return response()->json($modelos, 200);
-
+        //all() -> criando um obj de consulta + get() = collection
+        //get() -> modificar a consulta -> collection
     }
 
     /**
