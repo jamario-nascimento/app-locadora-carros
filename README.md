@@ -35,3 +35,19 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ```php artisan jwt:secret``` - Gerando secret  
 
 ```php artisan make:controller AuthController``` 
+
+## FrontEnd do projeto 
+
+Apartir daqui vamos criar nosso frontend em Vue Js
+
+### Instalando pacote UI para intarface do nosso sitema 
+
+```composer require laravel/ui:^3.2.1``` 
+
+### Gerar esqueleto do projeto com Vue JS e autenticação nativa(scaffold / esqueleto)
+
+```php artisan ui vue --auth``` 
+
+### Bixando dependencias e produzindo o bundle de front-end 
+
+```npm install && npm run dev``` 
