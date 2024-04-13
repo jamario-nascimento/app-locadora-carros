@@ -51,3 +51,7 @@ Apartir daqui vamos criar nosso frontend em Vue Js
 ### Bixando dependencias e produzindo o bundle de front-end 
 
 ```npm install && npm run dev``` 
+
+### Monitorando alteração nos components vue 
+
+```npm run watch``` 
