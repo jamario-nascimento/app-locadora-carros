@@ -28,6 +28,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
  Route::prefix('v1')->middleware('jwt.auth')->group(function() {
     Route::post('me', 'App\Http\Controllers\AuthController@me');
+    Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');
     Route::apiResource('cliente', 'App\Http\Controllers\ClienteController');
     Route::apiResource('carro', 'App\Http\Controllers\CarroController');
     Route::apiResource('locacao', 'App\Http\Controllers\LocacaoController');
