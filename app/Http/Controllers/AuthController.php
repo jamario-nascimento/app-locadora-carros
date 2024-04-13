@@ -21,7 +21,8 @@ class AuthController extends Controller
 
     public function logout()
     {
-        return 'logout';
+        auth('api')->logout();
+        return response()->json(['msg' => 'Deslogado'], 200);
     }
 
     public function refresh()
