@@ -47,6 +47,7 @@
                     <template v-slot:rodape>
                         <button type="buton" class="btn btn-primary btn-sm float-right">Adicionar</button>
                     </template>
+                    
                 </card-component>
                 <!-- final listagem de marcas -->
             </div>
