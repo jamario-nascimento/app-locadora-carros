@@ -37,7 +37,7 @@
 
                 <!-- inicio card listagem de marcas -->
                 <card-component titulo="Listagem de marcas">
-                
+
                     <template v-slot:conteudo>
                         <div class="row">
                             <table-component></table-component>
@@ -45,13 +45,18 @@
                     </template>
 
                     <template v-slot:rodape>
-                        <button type="buton" class="btn btn-primary btn-sm float-right">Adicionar</button>
+                        <button type="buton" class="btn btn-primary btn-sm float-right" data-bs-toggle="modal"
+                            data-bs-target="#modalMarca">Adicionar</button>
                     </template>
-                    
+
                 </card-component>
                 <!-- final listagem de marcas -->
             </div>
         </div>
+
+        <!-- Modal -->
+        <modal-component id="modalMarca" titulo="Adicionar marca"></modal-component>
+        <!-- end modal -->
     </div>
 </template>
 
