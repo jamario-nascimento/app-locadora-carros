@@ -89,40 +89,54 @@
 </template>
 
 <script>
-  export default {
-        data() {
-            return {
-                urlBase: 'http://localhost:8000/api/v1/marca',
-                nomeMarca: '',
-                arquivoImagem: []
-            }
+import { computed } from 'vue';
+
+export default {
+    computed: {
+        token() {
+            let token=  document.cookie.split(';').find(indice =>{
+                return indice.startsWith('token=')
+            })
+            token = token.split('=')[1]
+            console.log(token)
+            token = 'Bearer ' + token
+            return token
+        }
+    },
+    data() {
+        return {
+            urlBase: 'http://localhost:8000/api/v1/marca',
+            nomeMarca: '',
+            arquivoImagem: []
+        }
+    },
+    methods: {
+        carregarImagem(e) {
+            this.arquivoImagem = e.target.files
         },
-        methods: {
-            carregarImagem(e) {
-                this.arquivoImagem = e.target.files
-            },
-            salvar() {
-                console.log(this.nomeMarca, this.arquivoImagem[0])
+        salvar() {
+            console.log(this.nomeMarca, this.arquivoImagem[0])
 
-                let formData = new FormData();
-                formData.append('nome', this.nomeMarca)
-                formData.append('imagem', this.arquivoImagem[0])
+            let formData = new FormData();
+            formData.append('nome', this.nomeMarca)
+            formData.append('imagem', this.arquivoImagem[0])
 
-                let config = {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                        'Accept': 'application/json'
-                    }
+            let config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json',
+                    'Authorization': this.$token
                 }
-
-                axios.post(this.urlBase, formData, config)
-                    .then(response => {
-                        console.log(response)
-                    })
-                    .catch(errors => {
-                        console.log(errors)
-                    })
             }
+
+            axios.post(this.urlBase, formData, config)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(errors => {
+                    console.log(errors)
+                })
         }
     }
+}
 </script>
