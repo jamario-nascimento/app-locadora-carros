@@ -1,9 +1,16 @@
 <template>
     <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card mb-3">
                     <card-component titulo="Busca de marcas">
+
+                        <template v-slot:alertas>
+                            <alert-component tipo="success"></alert-component>
+                            <alert-component tipo="danger"></alert-component>
+                        </template>
+
                         <template v-slot:conteudo>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -14,8 +21,6 @@
                                             placeholder="ID">
 
                                     </input-container-component>
-
-
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <input-container-component titulo="Nome" id="inputNome" id-help="nomeHelp"
@@ -94,7 +99,7 @@ import { computed } from 'vue';
 export default {
     computed: {
         token() {
-            let token=  document.cookie.split(';').find(indice =>{
+            let token = document.cookie.split(';').find(indice => {
                 return indice.startsWith('token=')
             })
             token = token.split('=')[1]
